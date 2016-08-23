@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=utf-8');
     $bomb = 40; 
     $length = $row * $n;
     
-    $id = "MMMMM23M20N4M5433MM42NM4M22M44MMNM54M322M5MN3MM4M235M3NM5M434MMM2NM633MM4431NMMM3344M21NM6M31MM3M1N13M2122211";
+    $id  = $_GET["map"];
     $idLength = strlen( $id );
     //var_dump($idLength);
      
@@ -59,7 +59,7 @@ header('Content-Type: text/html; charset=utf-8');
 
     for($x = 0; $x < 10; $x++) {
         for($j = 0; $j < 10; $j++) {
-            if($place[$x][$j] === "0") {
+            if($place[$x][$j] !=="0") {
                 $num = 0;
                 //左上
                 if($place[$x-1][$j-1] === "M") {
@@ -96,6 +96,8 @@ header('Content-Type: text/html; charset=utf-8');
                 //$place[$x][$j] = $num;
                 if( $num != $place[$x][$j]){
                     echo "不符合 ";
+                    break 2;
+                    
                 }
             }
         }
