@@ -10,9 +10,20 @@ header('Content-Type: text/html; charset=utf-8');
     $id  = $_GET["map"];
     $idLength = strlen( $id );
     $ans = 1;
-    
-    //var_dump($idLength);
-     
+ 
+    //檢查正則
+    if (!preg_match("/^([0-8MN]+)$/", $id)) {
+        
+        if (preg_match("/^([0-8mN]+)$/", $id)){
+            
+            echo "炸彈大小寫錯誤";
+            
+        } else if (preg_match("/^([0-9MN]+)$/", $id)){
+            echo "數字錯誤出現9";
+        }
+        exit();
+    }
+   
     //檢查長度
      if ($idLength > $length-1) {
          
@@ -31,20 +42,14 @@ header('Content-Type: text/html; charset=utf-8');
     
     //檢查炸彈
     $bombTest = substr_count($id, "M");
-    
-    if ( $bombTest > $bomb) {
-        echo "不符合 炸彈數太多 數量為:$bombTest";
+    if ( $bombTest > $bomb || $bombTest < $bomb ) {
+        echo "地雷數量有錯 有".$bombTest."顆地雷";
         exit();
-        
-     } else if($bombTest < $bomb) {
-         
-        echo "不符合 炸彈數太少 數量為:$bombTest";
-        exit();
-        
-     } else if($bombTest = $bomb) {
-        //echo "正確";
+    } else if($bombTest = $bomb) {
+       
      }
      
+ 
      //切割n
      $newId = str_replace("N", "",$id);
      //var_dump( $newId);
@@ -96,10 +101,10 @@ header('Content-Type: text/html; charset=utf-8');
                 }
                 //$place[$x][$y] = $num;
                 if($num != $place[$x][$y]){
-                    echo "位置在[".$x."][".$y."]不符合 ";
+                    echo "位置在[".$x."][".$y."]應該是 $num";
                     $ans = 0;
                     break 2;
-                } 
+                }
             }
         }
     }
