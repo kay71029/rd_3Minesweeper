@@ -22,10 +22,12 @@ $time_start = microtime(true);
             $a++;
         }
     }
+    //echo sizeof($Rand);
+    //return;
  //var_dump($Rand);
      for($i = 0; $i < 1200; $i++) {
         $temp = $Rand[$i];
-        $x = floor($temp/50);
+        $x = floor($temp/60);
         $y = $temp % 60;
         $place[$x][$y] = "M";
     }
