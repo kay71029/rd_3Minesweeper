@@ -75,7 +75,7 @@ require('db.php');
         $sql = "SELECT `account` FROM `user` WHERE `id`= '$id'";
         $account = $db->select($sql);
      
-        if ($account[0]['account'] <= 0 || $money > $account[0]['account']) {
+        if ($money > $account[0]['account']) {
           echo json_encode(array('id' => $id, 'type' => $type,'number' => $number,'money' => $money,'massage' => "餘額不足"),JSON_UNESCAPED_UNICODE); 
           exit();
         }
