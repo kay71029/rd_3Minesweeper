@@ -29,6 +29,12 @@ require('db.php');
         exit();
     }
     
+    //判斷序號格式
+    if (!is_numeric($number)) {
+        echo json_encode(array('massage' => "序號格式錯誤"),JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+    
     //判斷序號重複
     $sql = "SELECT `number` FROM `record` WHERE `number`= '$number'";
     $bdNumber = $db->select($sql);
@@ -39,7 +45,7 @@ require('db.php');
     }
     
     //判斷金錢格式
-    if (is_int($money) <= 0) {
+    if (!is_numeric($money)) {
         echo json_encode(array('massage' => "數字格式錯誤"),JSON_UNESCAPED_UNICODE);
         exit();
     }
