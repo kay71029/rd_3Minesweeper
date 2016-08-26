@@ -8,7 +8,11 @@ require('db.php');
     $id = $_GET["id"];
     $sql = "SELECT `id` FROM `user` WHERE `id`= '$id'";
     $OregeneUser = $db->select($sql);
-      
+     
+    if($id == null){
+       echo json_encode(array('id' => $id, 'massage' => "失敗"),JSON_UNESCAPED_UNICODE); 
+       exit();
+    } 
     if ($OregeneUser[0]['id'] == null) {
         $sql = "INSERT INTO `user` (`id`) VALUES ('$id')";
         $ans = $db->insert($sql);

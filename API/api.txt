@@ -2,19 +2,19 @@ API呼叫方式
 GET：
    JSON (https://rd1-memcache-kay-yu.c9users.io/rd3/API/API名稱?GET參數)
 
-1.新增會員
+1.新增會員 addUser.php
     
     參數名稱:id 會員帳號
     例如:
         回傳結果:{"id":"123","massage":"成功"}
 
-2.取得餘額
+2.取得餘額 getUserBalance.php
     
     參數名稱:id 會員帳號
     例如:
         回傳結果:{"id":"123","massage":[{"account":"10000"}]}
         
-3.轉帳
+3.轉帳 Transfer.php
 
     參數名稱:id  會員帳號
     參數名稱:type 存款代號為1 提款代號為0 
@@ -23,7 +23,7 @@ GET：
     例如:
         回傳結果:{"id":"123","type":"1","number":"1","money":"500","massage":"存款成功"}
 
-4.轉帳確認
+4.轉帳確認 CheckId.php
     參數名稱:id 會員帳號
     參數名稱:number 交易序號轉帳序號
     例如:
