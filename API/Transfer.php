@@ -8,6 +8,11 @@ require('db.php');
     $number = $_GET["number"];
     $money = $_GET["money"];
     
+    if ($id == null && $type == null && $number == null && $money == null) { 
+        echo json_encode(array('id' => $id, 'type' => $type,'number' => $number,'money' => $money,'massage' => "失敗"),JSON_UNESCAPED_UNICODE);
+        exit();
+    }
+    
     //存款 $type == 1
      if($type == 1){
          

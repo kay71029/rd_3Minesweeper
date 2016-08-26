@@ -6,6 +6,11 @@ require('db.php');
     $db = new Database();
     
     $id = $_GET["id"];
+    
+    if ($id == null) {
+        echo json_encode(array('id' => $id, 'massage' => "失敗"),JSON_UNESCAPED_UNICODE); 
+        exit();
+    } 
      
     $sql = "SELECT `account` FROM `user` WHERE `id`= '$id'";
     $account = $db->select($sql);
