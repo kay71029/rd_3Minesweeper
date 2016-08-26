@@ -39,7 +39,7 @@ require('db.php');
     }
     
     //判斷金錢格式
-    if (intval($money) <= 0) {
+    if (is_int($money) <= 0) {
         echo json_encode(array('massage' => "數字格式錯誤"),JSON_UNESCAPED_UNICODE);
         exit();
     }

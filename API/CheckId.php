@@ -15,7 +15,7 @@ require('db.php');
      $sql = "SELECT `id` FROM `user` WHERE `id`= '$id'";
      $OregeneUser = $db->select($sql);
      
-    if ($id == null || $OregeneUser[0]['id'] != $id || $OregeneUser[0]['id'] == preg_match("/^[A-Za-z0-9]+$/",$id) ) {
+    if ($id == null || $OregeneUser[0]['id'] != $id || !preg_match("/^[A-Za-z0-9]+$/",$id) ) {
        echo json_encode(array('id' => $id, 'massage' => "沒有此帳號"),JSON_UNESCAPED_UNICODE); 
        exit();
     } 
