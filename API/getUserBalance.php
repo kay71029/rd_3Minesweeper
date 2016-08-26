@@ -7,6 +7,8 @@ require('db.php');
     
     $id = $_GET["id"];
     
+    
+    
     if ($id == null) {
         echo json_encode(array('id' => $id, 'massage' => "失敗"),JSON_UNESCAPED_UNICODE); 
         exit();

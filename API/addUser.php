@@ -10,9 +10,10 @@ require('db.php');
     $OregeneUser = $db->select($sql);
      
     if ($id == null || $id == preg_match("/^[A-Za-z0-9]+$/",$id)) {
-       echo json_encode(array('id' => $id, 'massage' => "失敗"),JSON_UNESCAPED_UNICODE); 
+       echo json_encode(array('id' => $id, 'massage' => "帳號必須有數字及英文組成"),JSON_UNESCAPED_UNICODE); 
        exit();
     } 
+    
     
     if ($OregeneUser[0]['id'] == null) {
         $sql = "INSERT INTO `user` (`id`) VALUES ('$id')";
