@@ -13,6 +13,13 @@ require('db.php');
         exit();
     }
     
+    $sql = "SELECT `number` FROM `record` WHERE `id`= $id";
+    $bdNumber = $db->select($sql);
+    
+    if ($bdNumber[0]['number'] == $number) {
+        echo json_encode(array('massage' => "序號重複失敗"),JSON_UNESCAPED_UNICODE);
+        exit();
+    }
     //存款 $type == 1
      if($type == 1){
          
