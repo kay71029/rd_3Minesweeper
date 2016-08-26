@@ -15,3 +15,4 @@ if ("CheckId" == $_GET['url']) {
 if ("Transfer" == $_GET['url'] ) {
     include ("Transfer.php");
 }
+

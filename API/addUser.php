@@ -9,7 +9,7 @@ require('db.php');
     $sql = "SELECT `id` FROM `user` WHERE `id`= '$id'";
     $OregeneUser = $db->select($sql);
      
-    if ($id == null) {
+    if ($id == null || $id == preg_match("/^[A-Za-z0-9]+$/",$id)) {
        echo json_encode(array('id' => $id, 'massage' => "失敗"),JSON_UNESCAPED_UNICODE); 
        exit();
     } 
